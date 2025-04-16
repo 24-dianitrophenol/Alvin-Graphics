@@ -45,7 +45,7 @@ const About = () => {
             className="relative"
           >
             <img
-              src="/src/components/images/about-alvin.jpg"
+              src="images/about-alvin.jpg"
               alt="Creative workspace"
               className="rounded-lg shadow-xl"
             />

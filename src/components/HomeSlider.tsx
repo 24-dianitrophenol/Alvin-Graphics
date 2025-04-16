@@ -5,17 +5,17 @@ const slides = [
   {
     title: "Creative Design Solutions",
     description: "Transforming ideas into visual masterpieces",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1200"
+    image: "images/about.jpg"
   },
   {
     title: "Digital Excellence",
     description: "Crafting digital experiences that inspire",
-    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=1200"
+    image: "images/slide.jpg"
   },
   {
     title: "Innovative Branding",
     description: "Building memorable brand identities",
-    image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=1200"
+    image: "images/about-alvin.jpg"
   }
 ];
 

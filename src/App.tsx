@@ -10,42 +10,42 @@ const projects = [
   {
     title: "Birthday Celebration",
     category: "Birthday",
-    image: "/src/components/images/1234.png"
+    image: "images/1234.png"
   },
   {
     title: "Eid Marketing",
     category: "Eid Mubarak",
-    image: "/src/components/images/alvin.png"
+    image: "images/alvin.png"
   },
   {
     title: "Flamia Gas Marketing",
     category: "Eid Mubarak",
-    image: "/src/components/images/david.png"
+    image: "images/david.png"
   },
   {
     title: "Peak Flame Marketing",
     category: "Eid Mubarak",
-    image: "/src/components/images/saviour.png"
+    image: "images/saviour.png"
   },
   {
     title: "IEEE-KYU Eid Celebration",
     category: "Eid Mubarak",
-    image: "/src/components/images/24.png"
+    image: "images/24.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/ieee.png"
+    image: "images/IEEE.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/ieee women.png"
+    image: "images/ieee women.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/david_8th.png"
+    image: "images/david_8th.png"
   },
   {
     title: "Event Posters",
