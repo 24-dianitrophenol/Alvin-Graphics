@@ -51,7 +51,7 @@ const Header = () => {
           className="flex items-center"
         >
           <img 
-            src="/src/components/images/logo.png" 
+            src="images/logo.png" 
             alt="Alvin Graphics" 
             className="h-10"
           />

@@ -8,7 +8,12 @@ const ChatWidget = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the message submission
+    
+    // Open WhatsApp link to send the message
+    const phoneNumber = 256763721005;
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+
     setMessage('');
   };
 
@@ -35,7 +40,7 @@ const ChatWidget = () => {
           >
             {/* Header */}
             <div className="bg-[#0f09fb] text-white p-4 rounded-t-lg flex justify-between items-center">
-              <h3 className="font-semibold">Chat with Alvin</h3>
+              <h3 className="font-semibold">Chat with Professor Alvin</h3>
               <button onClick={() => setIsOpen(false)}>
                 <X size={20} />
               </button>
