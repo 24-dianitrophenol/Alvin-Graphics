@@ -50,47 +50,47 @@ const projects = [
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/women-love wins.png"
+    image: "images/women-love wins.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/lovewins.png"
+    image: "images/lovewins.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/bible.png"
+    image: "images/bible.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/alvin-tech.png"
+    image: "images/alvin-tech.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/ma.png"
+    image: "images/ma.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/xm.png"
+    image: "images/xm.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/soap.png"
+    image: "images/soap.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/1.png"
+    image: "images/1.png"
   },
   {
     title: "Event Posters",
     category: "Print Design",
-    image: "/src/components/images/2.png"
+    image: "images/2.png"
   },
 ];
 
