@@ -44,7 +44,7 @@ const Header = () => {
 
   return (
     <header className="fixed w-full bg-[#284a95] z-50">
-      <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
