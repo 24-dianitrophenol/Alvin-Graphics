@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const menuItems = [
     { id: '/', label: 'Home' },
@@ -32,20 +33,24 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 flex-1 justify-center">
-          {menuItems.map((item) => (
-            <motion.li
-              key={item.id}
-              whileHover={{}}
-              className="cursor-pointer relative text-white"
-            >
-              <Link
-                to={item.id}
-                className="block px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-[#f95006] hover:text-white"
+          {menuItems.map((item) => {
+            const isActive = location.pathname === item.id;
+            return (
+              <motion.li
+                key={item.id}
+                whileHover={{}}
+                className="cursor-pointer relative text-white"
               >
-                {item.label}
-              </Link>
-            </motion.li>
-          ))}
+                <Link
+                  to={item.id}
+                  className={`block px-4 py-2 rounded-xl transition-colors duration-300 
+                    ${isActive ? 'bg-[#f95006] text-white shadow-lg' : 'hover:bg-[#f95006] hover:text-white'}`}
+                >
+                  {item.label}
+                </Link>
+              </motion.li>
+            );
+          })}
         </ul>
 
         {/* Search Icon */}
@@ -69,9 +74,9 @@ const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween' }}
-              className="fixed top-0 right-0 h-auto bg-[#284a95] md:hidden rounded-bl-lg shadow-lg"
+              className="fixed top-0 right-0 h-auto bg-[#284a95] md:hidden rounded-bl-3xl shadow-lg"
             >
-              <div className="p-4">
+              <div className="p-6">
                 <div className="flex justify-end">
                   <button
                     className="text-white mb-4"
@@ -80,19 +85,23 @@ const Header = () => {
                     <X size={24} />
                   </button>
                 </div>
-                <ul className="space-y-3">
-                  {menuItems.map((item) => (
-                    <motion.li
-                      key={item.id}
-                      whileHover={{ backgroundColor: 'white', color: '#284a95' }}
-                      className="cursor-pointer transition-colors text-white py-2 px-4 rounded-lg"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <Link to={item.id}>
-                        {item.label}
-                      </Link>
-                    </motion.li>
-                  ))}
+                <ul className="space-y-4">
+                  {menuItems.map((item) => {
+                    const isActive = location.pathname === item.id;
+                    return (
+                      <motion.li
+                        key={item.id}
+                        whileHover={{ backgroundColor: 'white', color: '#284a95' }}
+                        className={`cursor-pointer transition-colors text-white py-3 px-6 rounded-xl 
+                          ${isActive ? 'bg-[#f95006] text-white shadow-lg' : 'hover:bg-white hover:text-[#284a95]'}`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <Link to={item.id}>
+                          {item.label}
+                        </Link>
+                      </motion.li>
+                    );
+                  })}
                 </ul>
               </div>
             </motion.div>

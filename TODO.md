@@ -1,7 +1,9 @@
-# TODO: Redesign About Us Page and Footer with Modern UI
+# TODO: Restore Modern UI Design for Footer
 
 ## Tasks
-- [x] Redesign src/components/About.tsx with One UI 8 elements (hero section, stats cards, rounded corners, shadows, improved typography, animations)
-- [x] Redesign src/components/Footer.tsx with modern layout (newsletter signup, contact info, enhanced social links, One UI styling)
-- [ ] Test the redesigned components in the browser
-- [ ] Verify animations and responsiveness
+- [x] Add newsletter signup section with email input and subscribe button
+- [x] Add contact info section with email, phone, and address (using real data from ContactPage)
+- [x] Enhance social links with additional icons and better hover effects
+- [x] Apply One UI 8 styling: glassmorphism, rounded corners, shadows, improved typography, animations
+- [ ] Test the updated footer in the browser
+- [ ] Verify animations, responsiveness, and functionality
