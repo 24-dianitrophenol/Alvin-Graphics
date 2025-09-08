@@ -5,17 +5,17 @@ const slides = [
   {
     title: "Creative Design Solutions",
     description: "Transforming ideas into visual masterpieces",
-    image: "images/about.jpg"
+    image: "/images/about.jpg"
   },
   {
     title: "Digital Excellence",
     description: "Crafting digital experiences that inspire",
-    image: "images/slide.jpg"
+    image: "/images/slide.jpg"
   },
   {
     title: "Innovative Branding",
     description: "Building memorable brand identities",
-    image: "images/about-alvin.jpg"
+    image: "/images/about-alvin.jpg"
   }
 ];
 

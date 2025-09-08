@@ -1,91 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Menu, X, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
 
   const menuItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'about', label: 'About' }
+    { id: '/', label: 'Home' },
+    { id: '/projects', label: 'Projects' },
+    { id: '/about', label: 'About' },
+    { id: '/contact', label: 'Contact' }
   ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = menuItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
-
-      sections.forEach((section, index) => {
-        if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionBottom = sectionTop + section.offsetHeight;
-
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            setActiveSection(menuItems[index].id);
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-      setIsOpen(false);
-    }
-  };
 
   return (
     <header className="fixed w-full bg-[#284a95] z-50">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center"
         >
-          <img 
-            src="images/logo.png" 
-            alt="Alvin Graphics" 
-            className="h-10"
-          />
+          <Link to="/">
+            <img
+              src="/images/logo.png"
+              alt="Alvin Graphics"
+              className="h-10"
+            />
+          </Link>
         </motion.div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6">
+        <ul className="hidden md:flex space-x-6 flex-1 justify-center">
           {menuItems.map((item) => (
             <motion.li
               key={item.id}
-              whileHover={{ 
-                scale: 1.1,
-                color: '#f95006',
-                textShadow: '0 0 8px rgba(249, 80, 6, 0.3)'
-              }}
-              className={`cursor-pointer transition-colors relative text-white ${
-                activeSection === item.id ? 'text-[#f95006]' : ''
-              }`}
-              onClick={() => scrollToSection(item.id)}
+              whileHover={{}}
+              className="cursor-pointer relative text-white"
             >
-              {item.label}
-              {activeSection === item.id && (
-                <motion.div
-                  layoutId="underline"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#f95006]"
-                />
-              )}
+              <Link
+                to={item.id}
+                className="block px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-[#f95006] hover:text-white"
+              >
+                {item.label}
+              </Link>
             </motion.li>
           ))}
         </ul>
 
+        {/* Search Icon */}
+        <div className="flex items-center">
+          <Search className="text-white cursor-pointer hover:text-[#f95006] transition-colors" size={24} />
+        </div>
+
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white ml-4"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -114,13 +84,13 @@ const Header = () => {
                   {menuItems.map((item) => (
                     <motion.li
                       key={item.id}
-                      whileHover={{ x: 10, color: '#f95006' }}
-                      className={`cursor-pointer transition-colors text-white py-2 px-4 ${
-                        activeSection === item.id ? 'text-[#f95006]' : ''
-                      }`}
-                      onClick={() => scrollToSection(item.id)}
+                      whileHover={{ backgroundColor: 'white', color: '#284a95' }}
+                      className="cursor-pointer transition-colors text-white py-2 px-4 rounded-lg"
+                      onClick={() => setIsOpen(false)}
                     >
-                      {item.label}
+                      <Link to={item.id}>
+                        {item.label}
+                      </Link>
                     </motion.li>
                   ))}
                 </ul>

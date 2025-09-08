@@ -1,141 +1,27 @@
-import { motion } from 'framer-motion';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ProjectCard from './components/ProjectCard';
 import ChatWidget from './components/ChatWidget';
-import HomeSlider from './components/HomeSlider';
-import About from './components/About';
-
-const projects = [
-  {
-    title: "Birthday Celebration",
-    category: "Birthday",
-    image: "images/1234.png"
-  },
-  {
-    title: "Eid Marketing",
-    category: "Eid Mubarak",
-    image: "images/alvin.png"
-  },
-  {
-    title: "Flamia Gas Marketing",
-    category: "Eid Mubarak",
-    image: "images/david.png"
-  },
-  {
-    title: "Peak Flame Marketing",
-    category: "Eid Mubarak",
-    image: "images/saviour.png"
-  },
-  {
-    title: "IEEE-KYU Eid Celebration",
-    category: "Eid Mubarak",
-    image: "images/24.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/IEEE.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/ieee women.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/david_8th.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/women-love wins.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/lovewins.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/bible.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/alvin-tech.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/ma.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/xm.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/soap.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/1.png"
-  },
-  {
-    title: "Event Posters",
-    category: "Print Design",
-    image: "images/2.png"
-  },
-];
+import HomePage from './pages/HomePage';
+import ProjectsPage from './pages/ProjectsPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
-      
-      {/* Hero Section */}
-      <section id="home">
-        <HomeSlider />
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="px-4 py-20">
-        <div className="container mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-[#284a95] mb-12 text-center"
-          >
-            My Latest Projects
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <ProjectCard {...project} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <About />
-
-      <Footer />
-      <ChatWidget />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+        <Footer />
+        <ChatWidget />
+      </div>
+    </Router>
   );
 }
 
